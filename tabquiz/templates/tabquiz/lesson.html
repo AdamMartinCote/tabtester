@@ -1,9 +1,21 @@
 <h2> Leçon {{lesson.lesson_id}} </h2>
+
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong> </p>
+{% endif %}
+
 {% if question.image != "" %}
   <img src="{{question.image.url}}" alt="Your image here">
 {% endif %}
 <p> {{ question.text }} </p>
-{% for choice in choices %}
-  <li>{{ choice.choice_text }}</li>
-{% endfor %}
+<form action="{% url 'tabquiz:lesson' 1 %}" method="post">
+  {% csrf_token %}
+  {% for choice in question.choice_set.all %}
+    <!-- <li>{{ choice.choice_text }}</li> -->
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+  {% endfor %}
+  <br>
+  <input type="submit" value="Vote">
+</form>
 

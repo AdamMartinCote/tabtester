@@ -12,22 +12,11 @@ class LessonIndexView(ListView):
 
 def lesson(request, lesson_id):
     lesson = get_object_or_404(Lesson, lesson_id=lesson_id)
-    # return HttpResponse(lesson.description)
+    question = lesson.starting_question
+    choices = question.choice_set.all()
     context = {
         'lesson': lesson,
-        'question': lesson.starting_question,
+        'question': question,
+        'choices': choices,
     }
     return render(request, 'tabquiz/lesson.html', context)
-    # entry_point = get_object_or_404(Step, lesson_id=lesson_id, start=True)
-    # try:
-    #     # choices = list(Choice.objects.filter(question=lesson))
-    #     entry = 
-    # except Choice.DoesNotExist:
-
-    #     raise Http404("no Choices")
-
-    # context = {
-    #     'lesson': lesson,
-    #     'choices' : choices
-    # }
-    # return render(request, 'tabquiz/lesson.html', context)

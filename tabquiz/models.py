@@ -26,11 +26,12 @@ class Lesson(models.Model):
 
     
 class Choice(models.Model):
-    step = models.ForeignKey(
-            Question,
-            on_delete=models.CASCADE,
-            related_name='choice_question',
-            default="")
+    question = models.ForeignKey(
+        Question,
+        on_delete=models.CASCADE,
+        related_name='choice_set',
+        default=""
+    )
 
     choice_text = models.CharField(max_length=200)
 

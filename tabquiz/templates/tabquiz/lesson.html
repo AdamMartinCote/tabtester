@@ -1,8 +1,8 @@
-<h2> Leçon {{question.lesson_id}} </h2>
+<h2> Leçon {{lesson.lesson_id}} </h2>
 {% if question.image != "" %}
   <img src="{{question.image.url}}" alt="Your image here">
 {% endif %}
-<p> {{ question.question_text }} </p>
+<p> {{ question.text }} </p>
 {% for choice in choices %}
   <li>{{ choice.choice_text }}</li>
 {% endfor %}

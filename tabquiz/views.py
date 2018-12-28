@@ -12,7 +12,12 @@ class LessonIndexView(ListView):
 
 def lesson(request, lesson_id):
     lesson = get_object_or_404(Lesson, lesson_id=lesson_id)
-    return HttpResponse(lesson.description)
+    # return HttpResponse(lesson.description)
+    context = {
+        'lesson': lesson,
+        'question': lesson.starting_question,
+    }
+    return render(request, 'tabquiz/lesson.html', context)
     # entry_point = get_object_or_404(Step, lesson_id=lesson_id, start=True)
     # try:
     #     # choices = list(Choice.objects.filter(question=lesson))

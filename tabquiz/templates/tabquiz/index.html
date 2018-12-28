@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      {% for lesson in lesson_list %}
+        <li><a href={% url 'tabquiz:lesson' lesson.lesson_id %}>
+          {{lesson.lesson_id}} -- {{lesson.description}}
+        </a></li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

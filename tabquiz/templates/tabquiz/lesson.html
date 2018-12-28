@@ -1,7 +1,6 @@
 <h2> Leçon {{question.lesson_id}} </h2>
 {% if question.image != "" %}
   <img src="{{question.image.url}}" alt="Your image here">
-  <p>{{ question.image }}</p>
 {% endif %}
 <p> {{ question.question_text }} </p>
 {% for choice in choices %}

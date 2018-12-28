@@ -1,23 +1,28 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from django.views.generic.list import ListView
 
-from .models import Question, Choice
 
+from .models import Lesson, Question, Choice
 
-def index(request):
-    return HttpResponse("hello")
+class LessonIndexView(ListView):
+    model = Lesson
+    template_name='tabquiz/index.html'
+    context_object_name='lesson_list'
 
 def lesson(request, lesson_id):
-    question = get_object_or_404(Question, lesson_id=lesson_id, question_id=1)
-    try:
-        choices = list(Choice.objects.filter(question=question))
-    except Choice.DoesNotExist:
-        raise Http404("no Choices")
+    lesson = get_object_or_404(Lesson, lesson_id=lesson_id)
+    return HttpResponse(lesson.description)
+    # entry_point = get_object_or_404(Step, lesson_id=lesson_id, start=True)
+    # try:
+    #     # choices = list(Choice.objects.filter(question=lesson))
+    #     entry = 
+    # except Choice.DoesNotExist:
 
-    context = {
-        'question': question,
-        'choices' : choices
-    }
-    return render(request, 'tabquiz/lesson.html', context)
-    # return HttpResponse("this is lesson\n%s" % question.question_text)
+    #     raise Http404("no Choices")
 
+    # context = {
+    #     'lesson': lesson,
+    #     'choices' : choices
+    # }
+    # return render(request, 'tabquiz/lesson.html', context)

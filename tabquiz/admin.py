@@ -1,7 +1,17 @@
 from django.contrib import admin
 
-from .models import Question,Choice
+from .models import Lesson, Question, Choice
 
-admin.site.register(Question)
-admin.site.register(Choice)
+class LessonAdmin(admin.ModelAdmin):
+    pass
+
+class ChoiceInline(admin.TabularInline):
+    model=Choice
+    extra=0
+
+class QuestionAdmin(admin.ModelAdmin):
+    inlines=[ChoiceInline]
+    
+admin.site.register(Lesson, LessonAdmin)
+admin.site.register(Question, QuestionAdmin)
 

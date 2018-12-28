@@ -8,7 +8,7 @@
   <img src="{{question.image.url}}" alt="Your image here">
 {% endif %}
 <p> {{ question.text }} </p>
-<form action="{% url 'tabquiz:lesson' 1 %}" method="post">
+<form action="{% url 'tabquiz:lesson' lesson.lesson_id %}" method="post">
   {% csrf_token %}
   {% for choice in question.choice_set.all %}
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">

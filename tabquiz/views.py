@@ -12,8 +12,14 @@ class LessonIndexView(ListView):
 
 def lesson(request, lesson_id):
     lesson = get_object_or_404(Lesson, lesson_id=lesson_id)
-    question = lesson.starting_question
-    choices = question.choice_set.all()
+    if request.method == 'GET':
+        question = lesson.starting_question
+        choices = question.choice_set.all()
+
+    elif request.method == 'POST':
+        question = Question.objects.get(pk=1) # MOCK
+        choices = question.choice_set.all()
+        
     context = {
         'lesson': lesson,
         'question': question,

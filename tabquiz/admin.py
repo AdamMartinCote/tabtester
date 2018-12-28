@@ -6,6 +6,7 @@ class LessonAdmin(admin.ModelAdmin):
     pass
 
 class ChoiceInline(admin.TabularInline):
+    fk_name= 'question'
     model=Choice
     extra=0
 

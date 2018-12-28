@@ -32,6 +32,14 @@ class Choice(models.Model):
         related_name='choice_set',
         default=""
     )
+    next_question = models.ForeignKey(
+        Question,
+        on_delete=models.CASCADE,
+        related_name='parent_choice',
+        default="",
+        null=True,
+        blank=True,
+    )
 
     choice_text = models.CharField(max_length=200)
 

@@ -16,13 +16,13 @@ def lesson(request, lesson_id):
     # pdb.set_trace()
     lesson = get_object_or_404(Lesson, lesson_id=lesson_id)
     if request.method == 'GET':
-        question = lesson.starting_question
+        question = Question.objects.get(pk=1)
 
     elif request.method == 'POST':
         choice_number = request.POST['choice']
         choice = Choice.objects.get(pk=choice_number)
         question = choice.next_question
-        
+
     choices = question.choice_set.all()
     context = {
         'lesson': lesson,

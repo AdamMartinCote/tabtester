@@ -1,18 +1,24 @@
 from django.contrib import admin
 
+import nested_admin
+
 from .models import Lesson, Question, Choice
 
-class LessonAdmin(admin.ModelAdmin):
-    pass
 
-class ChoiceInline(admin.TabularInline):
-    fk_name= 'question'
+class ChoiceInline(nested_admin.NestedTabularInline):
     model=Choice
+    fk_name= 'level'
     extra=0
 
-class QuestionAdmin(admin.ModelAdmin):
+class QuestionInline(nested_admin.NestedStackedInline):
+    model=Question
+    fk_name='level'
     inlines=[ChoiceInline]
-    
-admin.site.register(Lesson, LessonAdmin)
-admin.site.register(Question, QuestionAdmin)
+    extra=0
 
+class LessonAdmin(nested_admin.NestedModelAdmin):
+    model=Lesson
+    inlines=[QuestionInline]
+
+admin.site.register(Lesson, LessonAdmin)
+# admin.site.register(Question, QuestionAdmin)

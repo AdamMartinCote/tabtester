@@ -13,8 +13,8 @@ Question
   - Parent Lesson
   - Question text
   - Choices
+  - [error committed on last choice ??]
 
 Choice
   - Choice text
   - target question
-  

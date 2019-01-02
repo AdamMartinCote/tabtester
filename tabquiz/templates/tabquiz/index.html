@@ -5,6 +5,7 @@
     <title>Document</title>
   </head>
   <body>
+    <h2>Menu des leçons</h2>
     <ul>
       {% for lesson in lesson_list %}
         <li><a href={% url 'tabquiz:lesson' lesson.lesson_id %}>
@@ -12,5 +13,6 @@
         </a></li>
       {% endfor %}
     </ul>
+    <a href="{% url 'admin:index' %}">Administration</a>
   </body>
 </html>

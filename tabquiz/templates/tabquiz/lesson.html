@@ -15,6 +15,9 @@
     <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
   {% endfor %}
   <br>
-  <input type="submit" value="Vote">
+  <input type="submit" value="Choisir">
 </form>
 
+<form action="{% url 'tabquiz:index' %}">
+    <input type="submit" value="retourner au menu des leçons" />
+</form>

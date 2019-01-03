@@ -33,6 +33,8 @@ class Question(models.Model):
             default=None,
             blank=True)
 
+    is_final = models.BooleanField(default=False)
+    
     def __str__(self):
         return self.text
 

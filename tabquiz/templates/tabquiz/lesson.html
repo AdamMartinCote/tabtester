@@ -35,6 +35,13 @@
       <input type="submit" value="Choisir">
     {% endif %}
   </form>
+  {% if question.is_final %}
+    <p>route:</p>
+    <ol>
+    {% for q in trace_route %}
+      <li>{{ q.text }}</li>
+    {% endfor %}
+  {% endif %}
 </div>
 
 

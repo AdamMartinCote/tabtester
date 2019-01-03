@@ -18,20 +18,17 @@ def lesson(request, lesson_id):
         route = list()
 
     elif request.method == 'POST':
-        choice_number = request.POST['choice']
-        choice = Choice.objects.get(pk=choice_number)
+        choice = Choice.objects.get(pk=request.POST['choice'])
         question = choice.next_question
         route = request.session['route']
         route.append(question.pk)
 
     request.session['route'] = route
-    choices = question.choice_set.all()
-    lesson_list = Lesson.objects.all()
     context = {
         'lesson': lesson,
-        'lesson_list': lesson_list,
+        'lesson_list': Lesson.objects.all(),
         'question': question,
-        'choices': choices,
+        'choices': question.choice_set.all(),
         'route': route,
     }
     return render(request, 'tabquiz/lesson.html', context)

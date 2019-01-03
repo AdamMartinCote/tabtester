@@ -19,7 +19,8 @@
     <div class="form-group">
       <input type="radio" name="choice" id="choice{{ forloop.counter }}"
              class="form-radio-input"
-             value="{{ choice.id }}" />
+             value="{{ choice.id }}"
+             required/>
       <label for="choice{{ forloop.counter }}"
              class="radio-inline control-label">
         {{ choice.choice_text }}
@@ -28,7 +29,11 @@
     </div>
     {% endfor %}
     <br>
-    <input type="submit" value="Choisir">
+
+    <!-- prevent submit if no choices -->
+    {% if choices.all %}
+      <input type="submit" value="Choisir">
+    {% endif %}
   </form>
 </div>
 

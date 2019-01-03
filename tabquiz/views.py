@@ -16,7 +16,8 @@ def lesson(request, lesson_id):
     # pdb.set_trace()
     lesson = get_object_or_404(Lesson, lesson_id=lesson_id)
     if request.method == 'GET':
-        question = Question.objects.get(pk=1)
+        # question = Question.objects.get(pk=1)
+        question = lesson.question_set.all()[0]
 
     elif request.method == 'POST':
         choice_number = request.POST['choice']

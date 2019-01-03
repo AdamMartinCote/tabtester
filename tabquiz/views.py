@@ -24,11 +24,14 @@ def lesson(request, lesson_id):
         route.append(question.pk)
 
     request.session['route'] = route
+    trace_route = [Question.objects.get(pk=pk) for pk in route]
+    print(trace_route)
     context = {
         'lesson': lesson,
         'lesson_list': Lesson.objects.all(),
         'question': question,
         'choices': question.choice_set.all(),
         'route': route,
+        'trace_route': trace_route
     }
     return render(request, 'tabquiz/lesson.html', context)

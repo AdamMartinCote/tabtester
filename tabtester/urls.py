@@ -8,7 +8,7 @@ from . import settings
 
 
 urlpatterns = [
-    path('tabquiz/', include('tabquiz.urls')),
+    path('', include('tabquiz.urls')),
     path('admin/', admin.site.urls),
     re_path(r'^nested_admin/', include('nested_admin.urls')),
 ]

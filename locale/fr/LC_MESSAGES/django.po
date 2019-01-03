@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-03 03:05-0500\n"
+"POT-Creation-Date: 2019-01-03 12:28-0500\n"
 "PO-Revision-Date: 2019-01-03 HO:MI+ZONE\n"
 "Last-Translator: Adam Martin-Côté <me@adammartincote.com>\n"
 "Language-Team: Adam Martin-Côté <me@adammartincote.com>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "lesson id"
 msgstr "numéro de leçon"
 
-#: tabquiz/models.py:17
+#: tabquiz/models.py:17 tabquiz/templates/tabquiz/lesson.html:9
 msgid "Lesson"
 msgstr "Leçon"
 
@@ -34,17 +34,21 @@ msgstr "Leçons"
 msgid "text"
 msgstr "texte"
 
-#: tabquiz/models.py:50
+#: tabquiz/models.py:52
 msgid "next question"
 msgstr "prochaine question"
 
-#: tabquiz/models.py:55
+#: tabquiz/models.py:57
 msgid "choice text"
 msgstr "texte du choix"
 
-#: tabquiz/models.py:62 tabquiz/models.py:63
+#: tabquiz/models.py:64 tabquiz/models.py:65
 msgid "Choices"
 msgstr "Choix"
+
+#: tabquiz/templates/tabquiz/lesson.html:43
+msgid "your path"
+msgstr "votre cheminement"
 
 #: tabtester/settings.py:101
 msgid "English"

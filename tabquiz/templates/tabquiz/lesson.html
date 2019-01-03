@@ -1,11 +1,12 @@
 {% extends 'tabquiz/base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
 <div class="container text-center">
   <header>
-    <h2>Leçon {{lesson.lesson_id}}</h2>
+    <h2>{% trans "Lesson" %} {{lesson.lesson_id}}</h2>
   </header>
 
   {% if error_message %}
@@ -39,12 +40,12 @@
     {% endif %}
   </form>
   {% if question.is_final %}
-    <p>route:</p>
-    <!-- <style>
+    <p>{% trans "your path" %} :</p>
+    <style>
       .list-group-item {
         display: list-item
       }
-    </style> -->
+    </style>
     <ol class="list-group">
     {% for q in trace_route %}
       <li class="list-group-item">{{ q.text }}</li>

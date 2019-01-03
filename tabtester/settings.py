@@ -62,7 +62,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tabtester.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
@@ -122,6 +121,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static/'),
+# )
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

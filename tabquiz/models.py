@@ -17,13 +17,6 @@ class Question(models.Model):
 
     text = models.CharField(max_length=200)
 
-    # lesson = models.ForeignKey(
-    #     Lesson,
-    #     on_delete=models.CASCADE,
-    #     unique=True,
-    #     default="",
-    # )
-
     image = models.ImageField(
             upload_to='image/',
             default=None,
@@ -36,12 +29,6 @@ class Question(models.Model):
 class Choice(models.Model):
     level = models.ForeignKey('Question', on_delete=models.CASCADE,)
 
-    # question = models.ForeignKey(
-    #     Question,
-    #     on_delete=models.CASCADE,
-    #     related_name='choice_set',
-    #     default=""
-    # )
     next_question = models.ForeignKey(
         Question,
         on_delete=models.CASCADE,

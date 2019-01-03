@@ -6,6 +6,10 @@ from .models import Lesson, Question, Choice
 
 
 class ChoiceInline(nested_admin.NestedTabularInline):
+    fields = [
+        'choice_text',
+        'next_question'
+    ]
     model=Choice
     fk_name= 'level'
     extra=0

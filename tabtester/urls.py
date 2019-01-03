@@ -12,5 +12,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^nested_admin/', include('nested_admin.urls')),
 ]
+
 urlpatterns += staticfiles_urlpatterns()
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(
+    settings.MEDIA_URL,
+    document_root=settings.MEDIA_ROOT)

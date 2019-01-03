@@ -1,11 +1,14 @@
 from django.contrib import admin
 
 import nested_admin
+from nested_admin import NestedTabularInline,\
+                         NestedStackedInline,\
+                         NestedModelAdmin
 
 from .models import Lesson, Question, Choice
 
 
-class ChoiceInline(nested_admin.NestedTabularInline):
+class ChoiceInline(NestedTabularInline):
     fields = [
         'choice_text',
         'next_question'
@@ -14,14 +17,13 @@ class ChoiceInline(nested_admin.NestedTabularInline):
     fk_name= 'level'
     extra=0
 
-class QuestionInline(nested_admin.NestedStackedInline):
+class QuestionInline(NestedStackedInline):
     model=Question
     fk_name='level'
     inlines=[ChoiceInline]
     extra=0
 
-class LessonAdmin(nested_admin.NestedModelAdmin):
+@admin.register(Lesson)
+class LessonAdmin(NestedModelAdmin):
     model=Lesson
     inlines=[QuestionInline]
-
-admin.site.register(Lesson, LessonAdmin)

@@ -1,33 +1,36 @@
 {% extends 'tabquiz/base.html' %}
 {% block content %}
-<header>
-  <h2>Leçon {{lesson.lesson_id}}</h2>
-</header>
+<div class="container text-center">
+  <header>
+    <h2>Leçon {{lesson.lesson_id}}</h2>
+  </header>
 
-{% if error_message %}
-  <p><strong>{{ error_message }}</strong> </p>
-{% endif %}
+  {% if error_message %}
+    <p><strong>{{ error_message }}</strong> </p>
+  {% endif %}
 
-{% if question.image != "" %}
-  <img src="{{question.image.url}}" alt="Your image here">
-{% endif %}
-<p> {{ question.text }} </p>
-<form action="{% url 'tabquiz:lesson' lesson.lesson_id %}" method="post">
-  {% csrf_token %}
-  {% for choice in question.choice_set.all %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}"
-           value="{{ choice.id }}">
-    <label for="choice{{ forloop.counter }}">
-      {{ choice.choice_text }}
-    </label>
+  {% if question.image != "" %}
+    <img src="{{question.image.url}}" alt="Your image here">
+  {% endif %}
+  <p> {{ question.text }} </p>
+  <form action="{% url 'tabquiz:lesson' lesson.lesson_id %}" method="post">
+    {% csrf_token %}
+    {% for choice in question.choice_set.all %}
+    <div class="form-group">
+      <input type="radio" name="choice" id="choice{{ forloop.counter }}"
+             class="form-radio-input"
+             value="{{ choice.id }}" />
+      <label for="choice{{ forloop.counter }}"
+             class="radio-inline control-label">
+        {{ choice.choice_text }}
+      </label>
+      <br>
+    </div>
+    {% endfor %}
     <br>
-  {% endfor %}
-  <br>
-  <input type="submit" value="Choisir">
-</form>
+    <input type="submit" value="Choisir">
+  </form>
+</div>
 
-<form action="{% url 'tabquiz:index' %}">
-    <input type="submit" value="retourner au menu des leçons" />
-</form>
 
 {% endblock %}

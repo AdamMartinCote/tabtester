@@ -24,8 +24,10 @@ def lesson(request, lesson_id):
         question = choice.next_question
 
     choices = question.choice_set.all()
+    lesson_list = Lesson.objects.all()
     context = {
         'lesson': lesson,
+        'lesson_list': lesson_list,
         'question': question,
         'choices': choices,
     }

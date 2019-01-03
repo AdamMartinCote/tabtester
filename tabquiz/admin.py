@@ -25,4 +25,3 @@ class LessonAdmin(nested_admin.NestedModelAdmin):
     inlines=[QuestionInline]
 
 admin.site.register(Lesson, LessonAdmin)
-# admin.site.register(Question, QuestionAdmin)

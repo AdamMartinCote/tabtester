@@ -1,3 +1,5 @@
+{% extends 'tabquiz/base.html' %}
+{% block content %}
 <header>
   <h2>Leçon {{lesson.lesson_id}}</h2>
 </header>
@@ -13,8 +15,12 @@
 <form action="{% url 'tabquiz:lesson' lesson.lesson_id %}" method="post">
   {% csrf_token %}
   {% for choice in question.choice_set.all %}
-    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}"
+           value="{{ choice.id }}">
+    <label for="choice{{ forloop.counter }}">
+      {{ choice.choice_text }}
+    </label>
+    <br>
   {% endfor %}
   <br>
   <input type="submit" value="Choisir">
@@ -23,3 +29,5 @@
 <form action="{% url 'tabquiz:index' %}">
     <input type="submit" value="retourner au menu des leçons" />
 </form>
+
+{% endblock %}

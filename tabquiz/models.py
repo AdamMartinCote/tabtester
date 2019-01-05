@@ -29,12 +29,16 @@ class Question(models.Model):
     )
 
     image = models.ImageField(
-            upload_to='image/',
-            default=None,
-            blank=True)
+        upload_to='image/',
+        default=None,
+        blank=True)
 
-    is_final = models.BooleanField(default=False)
-    
+    is_final = models.BooleanField(
+        default=False,
+        # Translators: indicates the final question of a lesson
+        verbose_name=_('final question')
+    )
+
     def __str__(self):
         return self.text
 

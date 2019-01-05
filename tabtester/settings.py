@@ -15,7 +15,12 @@ SECRET_KEY = '3d_=+@nm49!%-@0o)&$2p-30(y=avomvpx+l3^5n-g^yn-!elt'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+if DEBUG:
+    ALLOWED_HOSTS = [
+        '*',
+    ]
+else:
+    ALLOWED_HOSTS = []
 
 
 # Application definition

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-03 12:28-0500\n"
+"POT-Creation-Date: 2019-01-05 09:47-0500\n"
 "PO-Revision-Date: 2019-01-03 HO:MI+ZONE\n"
 "Last-Translator: Adam Martin-Côté <me@adammartincote.com>\n"
 "Language-Team: Adam Martin-Côté <me@adammartincote.com>\n"
@@ -26,7 +26,7 @@ msgstr "numéro de leçon"
 msgid "Lesson"
 msgstr "Leçon"
 
-#: tabquiz/models.py:18
+#: tabquiz/models.py:18 tabquiz/templates/tabquiz/base.html:42
 msgid "Lessons"
 msgstr "Leçons"
 
@@ -34,27 +34,42 @@ msgstr "Leçons"
 msgid "text"
 msgstr "texte"
 
-#: tabquiz/models.py:52
+#. Translators: indicates the final question of a lesson
+#: tabquiz/models.py:39
+msgid "final question"
+msgstr "question finale"
+
+#: tabquiz/models.py:56
 msgid "next question"
 msgstr "prochaine question"
 
-#: tabquiz/models.py:57
+#: tabquiz/models.py:61
 msgid "choice text"
 msgstr "texte du choix"
 
-#: tabquiz/models.py:64 tabquiz/models.py:65
+#: tabquiz/models.py:68 tabquiz/models.py:69
 msgid "Choices"
 msgstr "Choix"
+
+#: tabquiz/templates/tabquiz/base.html:36
+#, fuzzy
+#| msgid "lesson id"
+msgid "Lessons index"
+msgstr "numéro de leçon"
+
+#: tabquiz/templates/tabquiz/base.html:54
+msgid "Administration"
+msgstr "Administration"
 
 #: tabquiz/templates/tabquiz/lesson.html:43
 msgid "your path"
 msgstr "votre cheminement"
 
-#: tabtester/settings.py:101
+#: tabtester/settings.py:105
 msgid "English"
 msgstr "Anglais"
 
-#: tabtester/settings.py:102
+#: tabtester/settings.py:106
 msgid "French"
 msgstr "Français"
 

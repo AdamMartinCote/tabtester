@@ -58,7 +58,7 @@ class Choice(models.Model):
 
     choice_text = models.CharField(
         max_length=200,
-        verbose_name = _('choice text'),
+        verbose_name=_('choice text'),
     )
 
     def __str__(self):

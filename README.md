@@ -7,7 +7,7 @@ The Application is fully translated in :
  - French
  
 # Usage
-1) install the following python package in a virtual environment: 
+1) install the following python packages in a virtual environment: 
    - django
    - django-nested-admin
 

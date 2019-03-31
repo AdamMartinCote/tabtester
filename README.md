@@ -13,4 +13,3 @@ The Application is fully translated in :
 
 2) run the development server with `./manage.py runserver`
 
-Production settings are currently incomplete

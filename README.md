@@ -7,9 +7,15 @@ The Application is fully translated in :
  - French
  
 # Usage
-1) install the following python packages in a virtual environment: 
-   - django
-   - django-nested-admin
+1) install requirements in virtual environment:
+```sh
+python3.9 -m venv venv
+source ./venv/bin/activate
+pip install -r requirements.txt
+```
 
-2) run the development server with `./manage.py runserver`
+2) run the development server with 
+```sh
+./manage.py runserver
+```
 

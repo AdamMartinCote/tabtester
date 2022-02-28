@@ -1,0 +1,4 @@
+Django==4.0.2
+django-nested-admin==3.4.0
+Pillow==9.0.1
+
